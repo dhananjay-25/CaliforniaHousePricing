@@ -1,3 +1,100 @@
-<h1>
-    hello world
-</h1>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: rgb(169, 124, 198);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 50px;
+            color: #221a14;
+            padding: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button[type="submit"] {
+            background-color: #85491e;
+            color: white;
+            font-size: 20px;
+            padding: 20px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #a7691d;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+    <h2>California House Price Prediction</h2>
+
+
+    <form action = "{{ url_for('predict')}}"method="post">
+        <label for="MedInc">MedInc:</label>
+        <input type="text" id="MedInc" name="MedInc" step="any" required>
+
+        <label for="HouseAge">HouseAge:</label>
+        <input type="text" id="HouseAge" name="HouseAge" required>
+
+        <label for="AveRooms">AveRooms:</label>
+        <input type="text" id="AveRooms" name="AveRooms" step="any" required>
+
+        <label for="AveBedrms">AveBedrms:</label>
+        <input type="text" id="AveBedrms" name="AveBedrms" step="any" required>
+
+        <label for="Population">Population:</label>
+        <input type="text" id="Population" name="Population" required>
+
+        <label for="AveOccup">AveOccup:</label>
+        <input type="text" id="AveOccup" name="AveOccup" step="any" required>
+
+        <label for="Latitude">Latitude:</label>
+        <input type="text" id="Latitude" name="Latitude" step="any" required>
+
+        <label for="Longitude">Longitude:</label>
+        <input type="text" id="Longitude" name="Longitude" step="any" required>
+
+        <button type="submit">Predict</button>
+    </form>
+    <br>
+    <br>
+
+    </div>
+
+
+    {{prediction_text}}
+
+</body>
+</html>
